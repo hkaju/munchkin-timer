@@ -87,9 +87,6 @@ var app = new Vue({
   methods: {
     start: function() {
       var timeout = this.minTime + generateRandomInterval(this.maxTime - this.minTime);
-
-      console.log('starting timer with min', this.minTime, 'and max', timeout);
-
       // Update Vue state
       this.timerRunning = true;
       this.timeRemaining = this.minTime * 60;
