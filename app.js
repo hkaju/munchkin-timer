@@ -1,6 +1,6 @@
 // Alarm sounds
-var intermediaryAlarm = new Audio("assets/alarm-intermediary.mp3");
-var finalAlarm = new Audio("assets/alarm-final.mp3");
+var warningAlarm = document.getElementById('alarm-warning');
+var finalAlarm = document.getElementById('alarm-final');
 
 // Timers object
 var timers = {
@@ -15,7 +15,7 @@ function generateRandomInterval(interval) {
 
 function startMinTimeout(timeout, callback) {
   timers.min = window.setTimeout(function() {
-    intermediaryAlarm.play();
+    warningAlarm.play();
     if (callback) callback();
   }, timeout * 1000);
 }
