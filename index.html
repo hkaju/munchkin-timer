@@ -6,6 +6,7 @@
     <title>Munchkin Timer</title>
     <link rel="stylesheet" href="styles.css">
     <script src="lib/vue.js"></script>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -23,7 +24,7 @@
     <audio id="alarm-final" src="assets/alarm-final.wav" type="audio/wav"></audio>
     <audio id="alarm-warning" src="assets/alarm-warning.wav" type="audio/wav"></audio>
 
-    <main id="app" class="container">
+    <main id="app" class="container-fluid">
       <div class="contents">
 
       </div>
@@ -32,13 +33,13 @@
       <div class="row pm">
         <h4 class="col-xs-12 pm-title">Minimum time</h2>
 
-        <div class="col-xs-3 col-xs-offset-1">
+        <div class="col-xs-3 col-xs-offset-1 col-md-1 col-md-offset-4">
           <button class="btn btn-info pull-right" @click="decrementMinTime">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
           </button>
         </div>
 
-        <div class="col-xs-4 pm-label">{{minTimeLabel}}</div>
+        <div class="col-xs-4 col-md-2 pm-label">{{minTimeLabel}}</div>
 
         <div class="col-xs-3 col-md-1">
           <button class="btn btn-info pull-left" @click="incrementMinTime">
@@ -50,13 +51,13 @@
       <div class="row pm">
         <h4 class="col-xs-12 pm-title">Maximum time</h2>
 
-        <div class="col-xs-3 col-xs-offset-1 col-md-1 col-md-offset-2">
+        <div class="col-xs-3 col-xs-offset-1 col-md-1 col-md-offset-4">
           <button class="btn btn-info pull-right" @click="decrementMaxTime">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
           </button>
         </div>
 
-        <div class="col-xs-4 pm-label">{{maxTimeLabel}}</div>
+        <div class="col-xs-4 col-md-2 pm-label">{{maxTimeLabel}}</div>
 
         <div class="col-xs-3 col-md-1">
           <button class="btn btn-info pull-left" @click="incrementMaxTime">
@@ -66,7 +67,7 @@
       </div>
 
       <div class="row" v-if="timerRunning && timeRemaining === 0">
-        <div class="col-xs-12 timer-label">Any time now!</div>
+        <div class="col-xs-12 timer-label">💣💣💣💣💣💣</div>
       </div>
 
       <div class="row" v-else>
@@ -74,13 +75,13 @@
       </div>
 
       <div class="row" v-if="!timerRunning">
-        <button class="col-xs-4 col-xs-offset-4 btn btn-success" @click="start">
+        <button class="col-xs-4 col-xs-offset-4 col-md-2 col-md-offset-5 btn btn-success" @click="start">
           <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
         </button>
       </div>
 
       <div class="row" v-else>
-        <button class="col-xs-4 col-xs-offset-4 btn btn-danger" @click="stop">
+        <button class="col-xs-4 col-xs-offset-4 col-md-2 col-md-offset-5 btn btn-danger" @click="stop">
           <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
         </button>
       </div>
