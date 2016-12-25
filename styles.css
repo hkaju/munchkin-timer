@@ -1,0 +1,50 @@
+body {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  height: 100%;
+  width: 100%;
+
+  padding: 20px;
+  background: url(assets/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+main {
+  background-color: rgba(255,255,255,.9);
+  border-radius: 10px;
+  height: 100%;
+}
+
+.page-title {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.pm-title {
+  text-align: center;
+}
+
+.pm {
+  margin: 20px 0;
+}
+
+.pm-label {
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer-label {
+  text-align: center;
+
+  margin: 30px 0;
+  font-size: 30px;
+}
