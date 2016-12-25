@@ -66,7 +66,7 @@ var app = new Vue({
     minTime: 10,
     maxTime: 30,
     timerRunning: false,
-    timeRemaining: 10
+    timeRemaining: 0
   },
   computed: {
     minTimeLabel: function getMinTimeLabel() {
@@ -80,7 +80,8 @@ var app = new Vue({
       return label;
     },
     remainingTimeLabel: function() {
-      return leftPad(Math.round(this.timeRemaining / 60)) + ':' + leftPad(this.timeRemaining % 60);
+      var timeRemaining = this.timeRemaining > 0 ? this.timeRemaining : this.minTime * 60;
+      return leftPad(Math.floor(timeRemaining / 60)) + ':' + leftPad(timeRemaining % 60);
     },
   },
   methods: {
@@ -91,10 +92,10 @@ var app = new Vue({
 
       // Update Vue state
       this.timerRunning = true;
-      this.timeRemaining = this.minTime;
+      this.timeRemaining = this.minTime * 60;
       // Set up timeouts and intervals
-      startMinTimeout(this.minTime);
-      startMaxTimeout(timeout, this.stop.bind(this));
+      startMinTimeout(this.minTime * 60);
+      startMaxTimeout(timeout * 60, this.stop.bind(this));
       timers.ticker = window.setInterval(incrementBaseTimer.bind(this), 1000);
     },
     stop: function() {
@@ -104,7 +105,7 @@ var app = new Vue({
       clearTicker();
       // Update Vue state
       this.timerRunning = false;
-      this.timeRemaining = this.minTime;
+      this.timeRemaining = this.minTime * 60;
     },
     incrementMinTime: function() {
       this.minTime += 1;
